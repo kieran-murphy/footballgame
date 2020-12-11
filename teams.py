@@ -10,7 +10,7 @@ newnames2 = []
 
 def createnames(names,suffixes):
     
-    while len(newnames1) < 13:
+    while len(newnames1) < 20:
         n1 = random.randint(1,len(names)) - 1
     
         nomp = names[n1]
@@ -33,7 +33,7 @@ def createteam(name):
     
     newteam = {
         "name": name,
-        "score": random.randint(1,10) * 3,
+        "score": random.randint(1,30) * 3,
         "attack": random.randint(1,40),
         "defense": random.randint(1,40),
         "luck": random.randint(1,40),
