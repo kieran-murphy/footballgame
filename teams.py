@@ -43,7 +43,6 @@ def createteam(name):
 
     return newteam
     
-    
 
 
 array = []

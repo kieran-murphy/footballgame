@@ -35,6 +35,17 @@ def red(team):
     else:
         pass
 
+def quickgoal(team):
+    #print("Goal! " + str(team.name) + " scores! ⚽")
+    team.score += 1
+
+def quickred(team):
+    if team.red == False:
+        #print("Red Card for " + str(team.name) + ' 🔴')
+        team.red = True
+    else:
+        pass
+
 def matchday(match):
     for i in range(0, 91):
         n1 = random.randint(1, 300)
@@ -87,5 +98,61 @@ def matchday(match):
         print(str(i) + """' """ + event)
     print(str(team1.name) + ' ' + str(team1.score) + '-' + str(team2.score) + ' ' + str(team2.name))
 
-matchday(match)
+def quickmatchday(match):
+    for i in range(0, 91):
+        n1 = random.randint(1, 300)
+        n2 = random.randint(0,1)
+        
+        #event = ""
+        #nothing happening
+        if n1 < 283:
+            if match[0].red == True or match[1].red == True:
+                pass
+            else:
+                pass
+        #VAR
+        elif n1 < 284:
+            #print("VAR Decision: Checking Possible Foul! 📺")
+            #time.sleep(3)
+            nVar = random.randint(0,10)
+            nVar_1 = random.randint(1,50)
+            nVar_2 = random.randint(1,50)
+            if (match[0].luck + nVar_1) > (match[1].luck + nVar_2):
+                varteam = match[0]
+            else:
+                varteam = match[1]
+            if nVar > 3:
+                #print("Penalty given for " + str(varteam.name) + "!")
+                nVar_3 = random.randint(0,4)
+                if nVar_3 > 1:
+                    quickgoal(varteam)
+                else:
+                    pass
+            else:
+                pass
 
+        #goal
+        elif n1 < 295:
+            #generate new random number here for each team (plus stats) to compare
+            n3_1 = random.randint(1,50)
+            n3_2 = random.randint(1,50)
+            if (match[0].attack + n3_1) > (match[1].attack + n3_2):
+                quickgoal(match[0])
+            else:
+                quickgoal(match[1])
+        #yellow card
+        elif n1 < 299:
+            pass
+        #red card 
+        else:
+            quickred(match[n2])
+        
+        
+    print(str(team1.name) + ' ' + str(team1.score) + '-' + str(team2.score) + ' ' + str(team2.name))
+
+
+
+
+
+#matchday(match)
+#quickmatchday(match)
