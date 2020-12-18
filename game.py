@@ -96,7 +96,7 @@ def matchday(match):
             red(match[n2])
         time.sleep(0.2)
         print(str(i) + """' """ + event)
-    print(str(team1.name) + ' ' + str(team1.score) + '-' + str(team2.score) + ' ' + str(team2.name))
+    print(str(match[0].name) + ' ' + str(match[0].score) + '-' + str(match[1].score) + ' ' + str(match[1].name))
 
 def quickmatchday(match):
     for i in range(0, 91):
@@ -148,7 +148,7 @@ def quickmatchday(match):
             quickred(match[n2])
         
         
-    print(str(team1.name) + ' ' + str(team1.score) + '-' + str(team2.score) + ' ' + str(team2.name))
+    print(str(match[0].name) + ' ' + str(match[0].score) + '-' + str(match[1].score) + ' ' + str(match[1].name))
 
 
 

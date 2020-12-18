@@ -5,7 +5,7 @@ from pprint import pprint as pp
 
 #from teams import createleague
 
-from game import quickmatchday
+from game import quickmatchday, Team
 from season import main
 
 with open('teams.txt') as f:
@@ -14,13 +14,18 @@ with open('teams.txt') as f:
 season = main()
 
 #for week in season
-for i in season:
+for week in season:
     #for match in week
-    for i2 in i:
+    for match in week:
         #for team in match
-        match = []
-        for i3 in i2:
-            match.append(i3)
-        quickmatchday(match)
+        match0 = []
+        match1 = [] 
+        for team in match:
+            match0.append(team)
+        team1 = Team(str(match0[0]), 0, 80, 80, 80, 80, 80)
+        team2 = Team(str(match0[1]), 0, 80, 80, 80, 80, 80)
+        match1.append(team1)
+        match1.append(team2)
+        quickmatchday(match1)
             
             

@@ -43,7 +43,7 @@ def createteam(name):
 
     return newteam
     
-
+ 
 
 array = []
 for name in newnames2:

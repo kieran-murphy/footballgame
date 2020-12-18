@@ -1,1 +1,182 @@
-[{"name": "Snowpass Boys", "score": 84, "attack": 22, "defense": 35, "luck": 11, "speed": 31, "stamina": 23}, {"name": "Arrow Utd", "score": 63, "attack": 17, "defense": 26, "luck": 27, "speed": 19, "stamina": 32}, {"name": "Lightning Utd", "score": 57, "attack": 26, "defense": 14, "luck": 24, "speed": 1, "stamina": 2}, {"name": "Alpha Utd", "score": 30, "attack": 30, "defense": 21, "luck": 14, "speed": 24, "stamina": 35}, {"name": "Red FC", "score": 78, "attack": 36, "defense": 7, "luck": 10, "speed": 6, "stamina": 13}, {"name": "Riverdale Utd", "score": 54, "attack": 20, "defense": 36, "luck": 38, "speed": 7, "stamina": 4}, {"name": "Volcano Utd", "score": 12, "attack": 3, "defense": 27, "luck": 17, "speed": 36, "stamina": 30}, {"name": "Auto Rovers", "score": 72, "attack": 13, "defense": 31, "luck": 39, "speed": 6, "stamina": 33}, {"name": "Firecracker Utd", "score": 45, "attack": 14, "defense": 1, "luck": 23, "speed": 23, "stamina": 10}, {"name": "Icy FC", "score": 45, "attack": 26, "defense": 30, "luck": 19, "speed": 14, "stamina": 7}, {"name": "Hit or Miss Utd", "score": 15, "attack": 9, "defense": 36, "luck": 1, "speed": 18, "stamina": 6}, {"name": "Applefarm Utd", "score": 12, "attack": 28, "defense": 9, "luck": 3, "speed": 24, "stamina": 27}, {"name": "Ricochet FC", "score": 81, "attack": 10, "defense": 2, "luck": 38, "speed": 18, "stamina": 19}, {"name": "Woodworth FC", "score": 12, "attack": 10, "defense": 40, "luck": 35, "speed": 28, "stamina": 19}, {"name": "Daggertooth FC", "score": 15, "attack": 38, "defense": 13, "luck": 20, "speed": 28, "stamina": 17}, {"name": "Pond Utd", "score": 84, "attack": 32, "defense": 1, "luck": 38, "speed": 29, "stamina": 7}, {"name": "Red Bull FC", "score": 33, "attack": 15, "defense": 22, "luck": 3, "speed": 16, "stamina": 18}, {"name": "Wolverine FC", "score": 18, "attack": 1, "defense": 14, "luck": 32, "speed": 28, "stamina": 26}, {"name": "Summer City", "score": 36, "attack": 39, "defense": 15, "luck": 2, "speed": 37, "stamina": 12}, {"name": "Omega FC", "score": 36, "attack": 36, "defense": 3, "luck": 18, "speed": 18, "stamina": 13}]
+[
+    {
+        "name": "Alpha City",
+        "score": 24,
+        "attack": 31,
+        "defense": 23,
+        "luck": 36,
+        "speed": 38,
+        "stamina": 12
+    },
+    {
+        "name": "Pond FC",
+        "score": 48,
+        "attack": 12,
+        "defense": 32,
+        "luck": 21,
+        "speed": 10,
+        "stamina": 17
+    },
+    {
+        "name": "Dynasty FC",
+        "score": 36,
+        "attack": 30,
+        "defense": 33,
+        "luck": 21,
+        "speed": 6,
+        "stamina": 5
+    },
+    {
+        "name": "Lakeside FC",
+        "score": 21,
+        "attack": 33,
+        "defense": 34,
+        "luck": 15,
+        "speed": 11,
+        "stamina": 14
+    },
+    {
+        "name": "Wolverine City",
+        "score": 33,
+        "attack": 18,
+        "defense": 15,
+        "luck": 6,
+        "speed": 10,
+        "stamina": 7
+    },
+    {
+        "name": "Ricochet FC",
+        "score": 24,
+        "attack": 35,
+        "defense": 6,
+        "luck": 18,
+        "speed": 10,
+        "stamina": 9
+    },
+    {
+        "name": "Hurricane City",
+        "score": 66,
+        "attack": 3,
+        "defense": 27,
+        "luck": 2,
+        "speed": 11,
+        "stamina": 17
+    },
+    {
+        "name": "Arrow City",
+        "score": 18,
+        "attack": 17,
+        "defense": 25,
+        "luck": 13,
+        "speed": 25,
+        "stamina": 19
+    },
+    {
+        "name": "Woodworth FC",
+        "score": 33,
+        "attack": 20,
+        "defense": 28,
+        "luck": 38,
+        "speed": 4,
+        "stamina": 37
+    },
+    {
+        "name": "Lightning FC",
+        "score": 27,
+        "attack": 17,
+        "defense": 14,
+        "luck": 15,
+        "speed": 11,
+        "stamina": 2
+    },
+    {
+        "name": "Pandora Albion",
+        "score": 30,
+        "attack": 25,
+        "defense": 37,
+        "luck": 20,
+        "speed": 39,
+        "stamina": 34
+    },
+    {
+        "name": "Firecracker Utd",
+        "score": 81,
+        "attack": 35,
+        "defense": 23,
+        "luck": 39,
+        "speed": 27,
+        "stamina": 3
+    },
+    {
+        "name": "Applefarm Utd",
+        "score": 27,
+        "attack": 26,
+        "defense": 39,
+        "luck": 9,
+        "speed": 38,
+        "stamina": 5
+    },
+    {
+        "name": "Daggertooth Albion",
+        "score": 15,
+        "attack": 34,
+        "defense": 40,
+        "luck": 17,
+        "speed": 12,
+        "stamina": 18
+    },
+    {
+        "name": "Magnolia City",
+        "score": 48,
+        "attack": 3,
+        "defense": 34,
+        "luck": 7,
+        "speed": 8,
+        "stamina": 38
+    },
+    {
+        "name": "Snowpass Utd",
+        "score": 15,
+        "attack": 38,
+        "defense": 17,
+        "luck": 25,
+        "speed": 24,
+        "stamina": 21
+    },
+    {
+        "name": "Block FC",
+        "score": 24,
+        "attack": 1,
+        "defense": 32,
+        "luck": 39,
+        "speed": 4,
+        "stamina": 17
+    },
+    {
+        "name": "Summer Utd",
+        "score": 33,
+        "attack": 27,
+        "defense": 2,
+        "luck": 30,
+        "speed": 5,
+        "stamina": 6
+    },
+    {
+        "name": "Hit or Miss Boys",
+        "score": 33,
+        "attack": 10,
+        "defense": 34,
+        "luck": 19,
+        "speed": 39,
+        "stamina": 12
+    },
+    {
+        "name": "Sportsball Utd",
+        "score": 27,
+        "attack": 10,
+        "defense": 28,
+        "luck": 37,
+        "speed": 2,
+        "stamina": 31
+    }
+]
