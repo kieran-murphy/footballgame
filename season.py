@@ -13,7 +13,7 @@ def make_day(num_teams, day):
     #lst = list(range(1, num_teams + 1))
     lst = []
     for team in data:
-        lst.append(team["name"])
+        lst.append(team)
     # rotate
     day %= (num_teams - 1)  # clip to 0 .. num_teams - 2
     if day:                 # if day == 0, no rotation is needed (and using -0 as list index will cause problems)

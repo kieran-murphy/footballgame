@@ -8,7 +8,7 @@ with open('teams.txt') as f:
 dicc = {}
 
 for team in data:
-    dicc[team["name"]] = team["score"]
+    dicc[team] = data[team]["score"]
 
 sorteddicc = sorted(dicc, key=dicc.get, reverse=True)
 

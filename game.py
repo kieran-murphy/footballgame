@@ -4,9 +4,11 @@ import json
 #from teams import createleague
 
 class Team:
-    def __init__(self, name, score, attack, defense, luck, speed, stamina): 
+    def __init__(self, name, score, goaldif, goals, attack, defense, luck, speed, stamina): 
         self.name = name
         self.score = score
+        self.goaldif = goaldif
+        self.goals = goals
         self.attack = attack
         self.defense = defense
         self.luck = luck
@@ -15,15 +17,15 @@ class Team:
         self.red = False
 
 
-team1 = Team('Team1', 0, 50, 50, 50, 50, 50)
-team2 = Team('Team2', 0, 30, 20, 20, 20, 20)
+team1 = Team('Team1', 0, 0, 0, 50, 50, 50, 50, 50)
+team2 = Team('Team2', 0, 0, 0, 30, 20, 20, 20, 20)
 
 match = [team1, team2]
 
 
 def goal(team):
     print("Goal! " + str(team.name) + " scores! ⚽")
-    team.score += 1
+    team.goals += 1
 
 def yellow(team):
     print("Yellow Card for " + str(team.name) + ' 🟡')
@@ -37,7 +39,7 @@ def red(team):
 
 def quickgoal(team):
     #print("Goal! " + str(team.name) + " scores! ⚽")
-    team.score += 1
+    team.goals += 1
 
 def quickred(team):
     if team.red == False:
@@ -98,7 +100,7 @@ def matchday(match):
         print(str(i) + """' """ + event)
     print(str(match[0].name) + ' ' + str(match[0].score) + '-' + str(match[1].score) + ' ' + str(match[1].name))
 
-def quickmatchday(match):
+def quickmatchday(match, json):
     for i in range(0, 91):
         n1 = random.randint(1, 300)
         n2 = random.randint(0,1)
@@ -146,13 +148,11 @@ def quickmatchday(match):
         #red card 
         else:
             quickred(match[n2])
-        
-        
-    print(str(match[0].name) + ' ' + str(match[0].score) + '-' + str(match[1].score) + ' ' + str(match[1].name))
-
-
-
-
+    for team in match:
+        for i in json:
+            if i == team:
+                json[i]["goals"] = team.goals 
+    print(str(match[0].name) + ' ' + str(match[0].goals) + '-' + str(match[1].goals) + ' ' + str(match[1].name))
 
 #matchday(match)
 #quickmatchday(match)

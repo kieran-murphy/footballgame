@@ -33,7 +33,9 @@ def createteam(name):
     
     newteam = {
         "name": name,
-        "score": random.randint(1,30) * 3,
+        "score": 0,
+        "goaldif": 0,
+        "goals": 0,
         "attack": random.randint(1,40),
         "defense": random.randint(1,40),
         "luck": random.randint(1,40),
@@ -45,23 +47,11 @@ def createteam(name):
     
  
 
-array = []
+dic = {}
 for name in newnames2:
     
-    array.append(createteam(name))
+    #array.append(createteam(name))
+    dic[name] = createteam(name)
     
 with open('teams.txt', 'w') as json_file:
-        json.dump(array, json_file)
-
-
-
-
-
-    
-
-
-    
-
-
-
-
+        json.dump(dic, json_file)
