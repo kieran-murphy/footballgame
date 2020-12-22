@@ -36,11 +36,11 @@ def createteam(name):
         "score": 0,
         "goaldif": 0,
         "goals": 0,
-        "attack": random.randint(1,40),
-        "defense": random.randint(1,40),
-        "luck": random.randint(1,40),
-        "speed": random.randint(1,40),
-        "stamina": random.randint(1,40)
+        "attack": random.randint(1,60),
+        "defense": random.randint(1,60),
+        "luck": random.randint(1,60),
+        "speed": random.randint(1,60),
+        "stamina": random.randint(1,60)
     }
 
     return newteam

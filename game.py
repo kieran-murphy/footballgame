@@ -101,6 +101,8 @@ def matchday(match):
     print(str(match[0].name) + ' ' + str(match[0].score) + '-' + str(match[1].score) + ' ' + str(match[1].name))
 
 def quickmatchday(match, json):
+    
+    
     for i in range(0, 91):
         n1 = random.randint(1, 300)
         n2 = random.randint(0,1)
@@ -150,9 +152,35 @@ def quickmatchday(match, json):
             quickred(match[n2])
     for team in match:
         for i in json:
-            if i == team:
-                json[i]["goals"] = team.goals 
+            if i == team.name:
+                json[i]["goals"] += team.goals 
+    winner = ""
+    draw = False
+    if match[0].goals > match[1].goals:
+        winner = match[0].name
+    elif match[0].goals < match[1].goals:
+        winner = match[1].name
+    else:
+        draw = True
+
     print(str(match[0].name) + ' ' + str(match[0].goals) + '-' + str(match[1].goals) + ' ' + str(match[1].name))
 
+    if draw == True:
+        print('draw')
+        for i in json:
+            for team in match:
+                if i == team.name:
+                    
+                    json[i]["score"] += 1
+    else:
+        for i in json:
+            if i == winner:
+                json[i]["score"] += 3
+                print('winner: ' + winner)
+                #elif i == draw:
+                #    json[i]["score"] += 3
+
+    
+    return json
 #matchday(match)
 #quickmatchday(match)

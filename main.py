@@ -13,9 +13,17 @@ with open('teams.txt') as f:
 
 season = main()
 
+for i in data:
+        data[i]['score'] = 0
+        data[i]['goals'] = 0
+
 #for week in season
+num = 0
 for week in season:
     #for match in week
+    num += 1
+    print(' ')
+    print('Gameweek: ' + str(num))
     for matchbrackets in week:
         #for team in match
         match0 = []
@@ -27,5 +35,8 @@ for week in season:
         match1.append(team1)
         match1.append(team2)
         quickmatchday(match1, data)
+
+with open('teams.txt', 'w') as json_file:
+        json.dump(data, json_file)
             
             
