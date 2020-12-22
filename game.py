@@ -48,6 +48,9 @@ def quickred(team):
     else:
         pass
 
+def quickprint(team):
+    print(team.name + " " + str(team.attack))
+
 def matchday(match):
     for i in range(0, 91):
         n1 = random.randint(1, 300)
@@ -180,7 +183,7 @@ def quickmatchday(match, json):
                 #elif i == draw:
                 #    json[i]["score"] += 3
 
-    
+    quickprint(match[0])
     return json
 #matchday(match)
 #quickmatchday(match)
