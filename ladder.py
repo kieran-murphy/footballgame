@@ -5,17 +5,23 @@ import json
 
 with open('teams.txt') as f:
     data = json.load(f)
-dicc = {}
 
-for team in data:
-    dicc[team] = data[team]["score"]
+def createladder(data):
 
-sorteddicc = sorted(dicc, key=dicc.get, reverse=True)
 
-position = 1
-for team in sorteddicc:
-    #print(dicc[team])
-    p = str(position) + '. ' + team + ' ' + str(dicc[team])
-    print(p)
-    position += 1
+    dicc = {}
+
+    for team in data:
+        dicc[team] = data[team]["score"]
+
+    sorteddicc = sorted(dicc, key=dicc.get, reverse=True)
+
+    position = 1
+    for team in sorteddicc:
+        #print(dicc[team])
+        p = str(position) + '. ' + team + ' ' + str(dicc[team])
+        print(p)
+        position += 1
+
+#createladder(data)
 

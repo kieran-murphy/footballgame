@@ -30,17 +30,28 @@ createnames(names,suffixes)
         
 
 def createteam(name):
-    
+    statsnum = 250
+    attnum = random.randint(1,100)
+    statsnum -= attnum
+    defnum = random.randint(1,100)
+    statsnum -= defnum
+    lucknum = random.randint(1,50)
+    statsnum -= lucknum
+    speednum = random.randint(1,statsnum)
+    statsnum -= speednum
+    stamnum = statsnum
+
+
     newteam = {
         "name": name,
         "score": 0,
         "goaldif": 0,
         "goals": 0,
-        "attack": random.randint(1,60),
-        "defense": random.randint(1,60),
-        "luck": random.randint(1,60),
-        "speed": random.randint(1,60),
-        "stamina": random.randint(1,60)
+        "attack": attnum + 20,
+        "defense": defnum + 20,
+        "luck": lucknum + 20,
+        "speed": speednum + 20,
+        "stamina": stamnum + 20
     }
 
     return newteam
@@ -50,7 +61,6 @@ def createteam(name):
 dic = {}
 for name in newnames2:
     
-    #array.append(createteam(name))
     dic[name] = createteam(name)
     
 with open('teams.txt', 'w') as json_file:
