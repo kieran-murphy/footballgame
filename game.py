@@ -17,15 +17,15 @@ class Team:
         self.red = False
 
 
-team1 = Team('Team1', 0, 0, 0, 50, 50, 50, 50, 50)
-team2 = Team('Team2', 0, 0, 0, 30, 20, 20, 20, 20)
+team1 = Team('Team1', 0, 0, 0, 50, 50, 50, 500, 50)
+team2 = Team('Team2', 0, 0, 0, 50, 50, 50, 50, 500)
 
 match = [team1, team2]
 
 
 def goal(team):
     print("Goal! " + str(team.name) + " scores! ⚽")
-    team.goals += 1
+    team.score += 1
 
 def yellow(team):
     print("Yellow Card for " + str(team.name) + ' 🟡')
@@ -53,6 +53,13 @@ def quickprint(team):
 
 def matchday(match):
     for i in range(0, 91):
+        if i < 46:
+            secondhalf = False
+        elif i == 46:
+            print('Half Time! ⏱️')
+            secondhalf = True
+        else:
+            secondhalf = True
         n1 = random.randint(1, 300)
         n2 = random.randint(0,1)
         
@@ -89,10 +96,16 @@ def matchday(match):
             #generate new random number here for each team (plus stats) to compare
             n3_1 = random.randint(1,50)
             n3_2 = random.randint(1,50)
-            if (match[0].attack + n3_1) > (match[1].attack + n3_2):
-                goal(match[0])
+            if secondhalf == True:
+                if (match[0].attack + match[0].stamina + n3_1) > (match[1].attack + match[1].stamina + n3_2):
+                    goal(match[0])
+                else:
+                    goal(match[1])
             else:
-                goal(match[1])
+                if (match[0].attack + match[0].speed + n3_1) > (match[1].attack + match[1].speed + n3_2):
+                    goal(match[0])
+                else:
+                    goal(match[1])
         #yellow card
         elif n1 < 299:
             yellow(match[n2])
@@ -101,10 +114,10 @@ def matchday(match):
             red(match[n2])
         time.sleep(0.2)
         print(str(i) + """' """ + event)
-    print(str(match[0].name) + ' ' + str(match[0].score) + '-' + str(match[1].score) + ' ' + str(match[1].name))
-
-def quickmatchday(match, json):
     
+    print(str(match[0].name) + ' ' + str(match[0].score) + '-' + str(match[1].score) + ' ' + str(match[1].name))
+    #print(str(team1.name) + ' ' + str(team1.score) + '-' + str(team2.score) + ' ' + str(team2.name))
+def quickmatchday(match, json):
     
     for i in range(0, 91):
         n1 = random.randint(1, 300)
@@ -185,5 +198,5 @@ def quickmatchday(match, json):
 
     quickprint(match[0])
     return json
-#matchday(match)
+matchday(match)
 #quickmatchday(match)
