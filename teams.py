@@ -5,8 +5,9 @@ names = ['Applefarm', 'Daggertooth', 'Dynasty', 'Riverdale', 'Hurricane', 'Woodw
 suffixes = ['Albion', 'Wednesday', 'Town', 'Boys', 'Rovers', 'Utd', 'City', 'FC', 'Utd', 'City', 'FC', 'Utd', 'City', 'FC', 'Utd', 'City', 'FC', 'Utd', 'City', 'FC', 'FC', 'Utd', 'City', 'FC']
 
 newnames1 = []
-newnames2 = []
+newnames2 = [] 
 
+premteams = ['Arsenal', 'Aston Villa', 'Brighton', 'Burnley', 'Chelsea', 'Crystal Palace', 'Everton', 'Fulham', 'Leeds Utd', 'Leicester City', 'Liverpool', 'Manchester Utd', 'Manchester City', 'Newcastle Utd', 'Sheffield Utd', 'Southampton', 'Spurs', 'West Brom', 'West Ham Utd', 'Wolves']
 
 def createnames(names,suffixes):
     
@@ -21,7 +22,7 @@ def createnames(names,suffixes):
         n2 = random.randint(1,len(suffixes)) - 1
         name += ' ' + str(suffixes[n2])
         newnames2.append(name)
-        print(name)
+        
         
     
     return newnames2
@@ -29,7 +30,7 @@ def createnames(names,suffixes):
 createnames(names,suffixes)
         
 
-def createteam(name):
+def createteam(name, key):
     statsnum = 250
     attnum = random.randint(1,100)
     statsnum -= attnum
@@ -40,28 +41,75 @@ def createteam(name):
     speednum = random.randint(1,statsnum)
     statsnum -= speednum
     stamnum = statsnum
+    bonus = 20
 
 
     newteam = {
+        "key": key,
         "name": name,
         "score": 0,
         "goaldif": 0,
         "goals": 0,
-        "attack": attnum + 20,
-        "defense": defnum + 20,
-        "luck": lucknum + 20,
-        "speed": speednum + 20,
-        "stamina": stamnum + 20
+        "attack": attnum + bonus,
+        "defense": defnum + bonus,
+        "luck": lucknum + bonus,
+        "speed": speednum + bonus,
+        "stamina": stamnum + bonus
     }
 
     return newteam
     
- 
+def createpremteam(name, key):
+    
+    attnum = random.randint(70,100)
+    
+    defnum = random.randint(70,100)
+    
+    lucknum = random.randint(70,100)
+    
+    speednum = random.randint(70,100)
+    
+    stamnum = random.randint(70,100)
+    bonus = 0
+
+    tier = 0
+    if name in ["Arsenal", "Chelsea", "Manchester Utd", "Manchester City", "Liverpool", "Spurs"]:
+        tier += 1
+    elif name in ["Everton", "Wolves", "Leicester City", "West Ham Utd", "Newcastle Utd"]:
+        tier += 2
+    else:
+        tier += 3
+    
+    if tier == 1:
+        bonus += 60
+    elif tier == 2:
+        bonus += 40
+    elif tier == 3:
+        bonus += 30
+
+    newteam = {
+        "key": key,
+        "name": name,
+        "score": 0,
+        "goaldif": 0,
+        "goals": 0,
+        "attack": attnum + bonus,
+        "defense": defnum + bonus,
+        "luck": lucknum + bonus,
+        "speed": speednum + bonus,
+        "stamina": stamnum + bonus
+    }
+
+    return newteam
 
 dic = {}
-for name in newnames2:
-    
-    dic[name] = createteam(name)
+key = 1
+#for name in newnames2:
+
+for name in premteams:
+    print(name)
+    dic[name] = createpremteam(name, key)
+    key += 1
     
 with open('teams.txt', 'w') as json_file:
-        json.dump(dic, json_file)
+        json.dump(dic, json_file, indent=4)

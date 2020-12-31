@@ -4,7 +4,8 @@ import json
 #from teams import createleague
 
 class Team:
-    def __init__(self, name, score, goaldif, goals, attack, defense, luck, speed, stamina): 
+    def __init__(self, key, name, score, goaldif, goals, attack, defense, luck, speed, stamina): 
+        self.key = key
         self.name = name
         self.score = score
         self.goaldif = goaldif
@@ -17,8 +18,8 @@ class Team:
         self.red = False
 
 
-team1 = Team('Team1', 0, 0, 0, 60, 60, 60, 60, 60)
-team2 = Team('Team2', 0, 0, 0, 50, 50, 50, 50, 50)
+team1 = Team('Team1', 1, 0, 0, 0, 60, 60, 60, 60, 60)
+team2 = Team('Team2', 1, 0, 0, 0, 50, 50, 50, 50, 50)
 
 match = [team1, team2]
 
@@ -194,7 +195,7 @@ def quickmatchday(match, json):
     print(str(match[0].name) + ' ' + str(match[0].goals) + '-' + str(match[1].goals) + ' ' + str(match[1].name))
 
     if draw == True:
-        print('draw')
+#        print('draw')
         for i in json:
             for team in match:
                 if i == team.name:
@@ -204,7 +205,7 @@ def quickmatchday(match, json):
         for i in json:
             if i == winner:
                 json[i]["score"] += 3
-                print('winner: ' + winner)
+#                print('winner: ' + winner)
                 #elif i == draw:
                 #    json[i]["score"] += 3
 
