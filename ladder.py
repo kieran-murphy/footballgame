@@ -8,11 +8,10 @@ with open('teams.txt') as f:
 
 def createladder(data):
 
-
     dicc = {}
 
     for team in data:
-        dicc[team] = data[team]["score"]
+        dicc[data[team]['name']] = data[team]["score"]
 
     sorteddicc = sorted(dicc, key=dicc.get, reverse=True)
 

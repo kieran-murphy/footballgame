@@ -105,7 +105,7 @@ def createpremteam(name, key):
 dic = {}
 key = 1
 #for name in newnames2:
-
+"""
 for name in premteams:
     print(name)
     dic[name] = createpremteam(name, key)
@@ -113,3 +113,4 @@ for name in premteams:
     
 with open('teams.txt', 'w') as json_file:
         json.dump(dic, json_file, indent=4)
+"""
