@@ -7,12 +7,12 @@ from pprint import pprint as pp
 #from teams import createleague
 
 from game import quickmatchday, Team
-from season import main
+from season import make_season
 
 with open('teams.txt') as f:
     data = json.load(f)
 
-season = main()
+season = make_season()
 
 for i in data:
         data[i]['score'] = 0

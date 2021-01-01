@@ -37,7 +37,7 @@ def make_schedule(num_teams):
 
     return schedule + swapped
 
-def main():
+def make_season():
     num_teams = 20
     schedule = make_schedule(num_teams)
     return schedule
