@@ -30,9 +30,10 @@ with open('teams.txt', 'w') as json_file:
 with open('teams.txt') as f:
     data = json.load(f)
 
-from rank import statrank, seasonrank
+from rank import statrank, seasonrank, findhigheststat
 from ladder import createladder
 from season import make_season
+
 season = make_season()
 
 #reset the score and goals for each season
@@ -153,10 +154,12 @@ if userteamkey < 21:
                             
                             
                             if j[0] == data[g]['name']:
-                                print('Your next opponent is ' + j[1])
+                                print('Your next opponent is ' + j[1] + " they are " + findhigheststat(data, j[1]) + " team.")
                             elif j[1] == data[g]['name']:
-                                print('Your next opponent is ' + j[0])
+                                print('Your next opponent is ' + j[0] + " they are " + findhigheststat(data, j[0]) + " team.")
                             #print(str(j[0]) + ' ' + '-' + ' ' + str(j[1]))
+
+                    statchoices0 = ["attack", "defense", "luck", "speed", "stamina"]
                     statchoices1 = ["attack", "defense", "luck", "speed", "stamina"]
                     statchoices2 = []
                     for i in range(0,3):
@@ -165,9 +168,17 @@ if userteamkey < 21:
                     for i in statchoices2:
                         print(str(num) + ". " + i.capitalize())
                         num += 1
-                    upgradechoice = input("Choose a stat to train: ")
-                    print(statchoices2[int(upgradechoice) - 1])
-                    #next = input('Press Enter for next gameweek')    
+                    upgradechoice = int(input("Choose a stat to train: "))
+                    stattoupgrade = statchoices2[upgradechoice - 1]
+                    upgradeamount = random.randint(1,5)
+
+                    data[g][stattoupgrade] += upgradeamount
+                    print(stattoupgrade.capitalize() + (' upgraded by ' + str(upgradeamount) + '! ' + statrank(data, stattoupgrade, data[g]['name'])))
+
+                    
+                    
+                    next = input('Press Enter for next gameweek')    
+                    
                     x1 += 1
                     
                 print(seasonrank(data, data[g]['name']))
