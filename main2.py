@@ -11,18 +11,55 @@ from pprint import pprint as pp
 #randomint 1-5 increase
 
 premteams = ['Arsenal', 'Aston Villa', 'Brighton', 'Burnley', 'Chelsea', 'Crystal Palace', 'Everton', 'Fulham', 'Leeds Utd', 'Leicester City', 'Liverpool', 'Manchester Utd', 'Manchester City', 'Newcastle Utd', 'Sheffield Utd', 'Southampton', 'Spurs', 'West Brom', 'West Ham Utd', 'Wolves']
+laligateams = ['Alavés', 'Athletic Bilbao', 'Atlético de Madrid', 'Barcelona', 'Cádiz', 'Celta Vigo', 'Eibar', 'Elche', 'Getafe', 'Granada', 'Huesca', 'Levante', 'Osasuna', 'Real Betis', 'Real Madrid', 'Real Sociedad', 'Sevilla', 'Valencia', 'Valladolid', 'Villarreal']
+bundesligateams = ['FC Augsburg', 'Hertha BSC', 'Union Berlin', 'Arminia Bielefeld', 'Werder Bremen', 'Borussia Dortmund', 'Eintracht Frankfurt', 'SC Freiburg', '1899 Hoffenheim', 'FC Köln', 'RB Leipzig', 'Bayer Leverkusen', 'Mainz 05', 'Borussia Mönchengladbach', 'Bayern Munich', 'Schalke 04', 'VfB Stuttgart', 'VfL Wolfsburg', 'Hannover 96', 'Hamburger SV']
+ligue1teams = ['Angers', 'Bordeaux', 'Brest', 'Dijon', 'Lens', 'Lille', 'Lorient', 'Lyon', 'Marseille', 'Metz', 'Monaco', 'Montpellier', 'Nantes', 'Nice', 'Nîmes', 'Paris Saint-Germain', 'Reims', 'Rennes', 'Saint-Étienne', 'Strasbourg']
+serieateams = ['Atalanta', 'Benevento', 'Bologna', 'Cagliari', 'Crotone', 'Fiorentina', 'Genoa', 'Hellas Verona', 'Inter Milan', 'Juventus', 'Lazio', 'AC Milan', 'Napoli', 'Parma', 'Roma', 'Sampdoria', 'Sassuolo', 'Spezia', 'Torino', 'Udinese']
+
+
 dic = {}
 key = 1
 #for name in newnames2:
 from game import quickmatchday, Team
-
 from teams import createpremteam
 
+print("1. Premier League")
+print("2. La Liga")
+print("3. Bundesliga")
+print("4. Ligue 1")
+print("5. Serie A")
+print("")
+leaguechoice = input("Choose a league: ")
+
+if int(leaguechoice) > 0 and int(leaguechoice) < 6:
+    if leaguechoice == "1":
+        for name in premteams:
+            dic[name] = createpremteam(name, key)
+            key += 1
+    elif leaguechoice == "2":
+        for name in laligateams:
+            dic[name] = createpremteam(name, key)
+            key += 1
+    elif leaguechoice == "3":
+        for name in bundesligateams:
+            dic[name] = createpremteam(name, key)
+            key += 1
+    elif leaguechoice == "4":
+        for name in ligue1teams:
+            dic[name] = createpremteam(name, key)
+            key += 1
+    elif leaguechoice == "5":
+        for name in serieateams:
+            dic[name] = createpremteam(name, key)
+            key += 1
+
+
+"""
 for name in premteams:
     #print(name)
     dic[name] = createpremteam(name, key)
     key += 1
-
+"""
 with open('teams.txt', 'w') as json_file:
         json.dump(dic, json_file, indent=4)
 
@@ -42,7 +79,7 @@ for i in data:
         data[i]['goals'] = 0
 
 #for week in season
-num = 0
+gameweeknum = 0
 x1 = 0
 
 
@@ -94,9 +131,9 @@ if userteamkey < 21:
 
 
                 for week in season:
-                    num += 1
+                    gameweeknum += 1
                     print(' ')
-                    print('Gameweek: ' + str(num))
+                    print('Gameweek: ' + str(gameweeknum))
                     for matchbrackets in week:
                         #for team in match
                         match0 = []
@@ -115,27 +152,6 @@ if userteamkey < 21:
                     createladder(data)
                     print(' ')
                     
-                    
-                    #shows the upcoming games 
-                    
-                    """
-                    upcomingArray = []
-                    x = 0 
-                    for i in season:
-                        if x == 0:
-                            pass
-                        else:
-                            upcomingArray.append(i)
-                        x += 1
-
-                    if x1 >= 37:
-                        pass
-                    else:
-                        print('Upcoming: ')
-                        for j in upcomingArray[x1]:
-                            
-                            print(str(j[0]) + ' ' + '-' + ' ' + str(j[1]))
-                    """
                     
                     upcomingArray = []
                     x = 0 
@@ -162,20 +178,27 @@ if userteamkey < 21:
                     statchoices0 = ["attack", "defense", "luck", "speed", "stamina"]
                     statchoices1 = ["attack", "defense", "luck", "speed", "stamina"]
                     statchoices2 = []
+
                     for i in range(0,3):
                         statchoices2.append(statchoices1.pop(random.randint(0, len(statchoices1) - 1)))
                     num = 1
                     for i in statchoices2:
                         print(str(num) + ". " + i.capitalize())
                         num += 1
-                    upgradechoice = int(input("Choose a stat to train: "))
-                    stattoupgrade = statchoices2[upgradechoice - 1]
-                    upgradeamount = random.randint(1,5)
+                    
 
+                    upgradechoice = input("Choose a stat to train: ")
+                    if upgradechoice == "1" or upgradechoice == "2" or upgradechoice == "3":
+                        #print('true')
+                        stattoupgrade = statchoices2[int(upgradechoice) - 1]
+                    else:
+                        upgradechoice = random.randint(0,2)
+                        print('Invalid choice: random chosen')
+                        stattoupgrade = statchoices2[upgradechoice - 1]
+                    upgradeamount = random.randint(1,4)
                     data[g][stattoupgrade] += upgradeamount
                     print(stattoupgrade.capitalize() + (' upgraded by ' + str(upgradeamount) + '! ' + statrank(data, stattoupgrade, data[g]['name'])))
 
-                    
                     
                     next = input('Press Enter for next gameweek')    
                     

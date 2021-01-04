@@ -7,7 +7,7 @@ with open('teams.txt') as f:
     data = json.load(f)
 
 attack = "speed"
-userteam = "Brighton"
+userteam = "Arsenal"
 
 def statrank(data, stat, userteam):
 
@@ -61,16 +61,18 @@ def seasonrank(data, userteam):
     statement = ('You finished ' + teampos + "!")
     return(statement)
 
+
+
 def findhigheststat(data, team):
     stats = ["attack", "defense", "luck", "speed", "stamina"]
     higheststat = ""
     statforreturn = ""
     higheststatnum = 0
     for stat in stats:
-        if int(data[team][stat]) > higheststatnum:
+        if data[team][stat] > higheststatnum:
+            higheststatnum = data[team][stat]
             higheststat = stat
-            print(higheststat)
-        #print(stat, data[team][stat])
+            
     
     if higheststat == "attack":
         statforreturn = "an attacking"
@@ -87,4 +89,3 @@ def findhigheststat(data, team):
 
 #print(statrank(data, attack, userteam))
 
-print(findhigheststat(data, userteam))
