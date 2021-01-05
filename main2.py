@@ -2,13 +2,12 @@ import random
 import time
 import json
 import rich
+from rich.console import Console
+from rich.table import Table
 from pprint import pprint as pp
 
+#console = Console()
 
-#each 3 weeks
-#what would you like to train today?
-#give 3 random stats
-#randomint 1-5 increase
 
 premteams = ['Arsenal', 'Aston Villa', 'Brighton', 'Burnley', 'Chelsea', 'Crystal Palace', 'Everton', 'Fulham', 'Leeds Utd', 'Leicester City', 'Liverpool', 'Manchester Utd', 'Manchester City', 'Newcastle Utd', 'Sheffield Utd', 'Southampton', 'Spurs', 'West Brom', 'West Ham Utd', 'Wolves']
 laligateams = ['Alavés', 'Athletic Bilbao', 'Atlético de Madrid', 'Barcelona', 'Cádiz', 'Celta Vigo', 'Eibar', 'Elche', 'Getafe', 'Granada', 'Huesca', 'Levante', 'Osasuna', 'Real Betis', 'Real Madrid', 'Real Sociedad', 'Sevilla', 'Valencia', 'Valladolid', 'Villarreal']
@@ -22,6 +21,7 @@ key = 1
 #for name in newnames2:
 from game import quickmatchday, Team
 from teams import createpremteam
+leaguecolor = ""
 
 print("1. Premier League")
 print("2. La Liga")
@@ -30,27 +30,33 @@ print("4. Ligue 1")
 print("5. Serie A")
 print("")
 leaguechoice = input("Choose a league: ")
+leaguecolor = ""
 
 if int(leaguechoice) > 0 and int(leaguechoice) < 6:
     if leaguechoice == "1":
         for name in premteams:
             dic[name] = createpremteam(name, key)
+            leaguecolor = "bright_magenta"
             key += 1
     elif leaguechoice == "2":
         for name in laligateams:
             dic[name] = createpremteam(name, key)
+            leaguecolor = "orange1"
             key += 1
     elif leaguechoice == "3":
         for name in bundesligateams:
             dic[name] = createpremteam(name, key)
+            leaguecolor = "yellow1"
             key += 1
     elif leaguechoice == "4":
         for name in ligue1teams:
             dic[name] = createpremteam(name, key)
+            leaguecolor = "red3"
             key += 1
     elif leaguechoice == "5":
         for name in serieateams:
             dic[name] = createpremteam(name, key)
+            leaguecolor = "chartreuse3"
             key += 1
 
 
@@ -69,6 +75,7 @@ with open('teams.txt') as f:
 
 from rank import statrank, seasonrank, findhigheststat
 from ladder import createladder
+from richladder import createrichladder
 from season import make_season
 
 season = make_season()
@@ -94,7 +101,7 @@ if userteamkey < 21:
     if userteamkey > 0:
         for g in data:
             if userteamkey == data[g]['key']:
-                
+                userteam = data[g]['name']
                 #data[g]['name'] = "~" + data[g]['name'] + "~"
                 with open('teams.txt', 'w') as json_file:
                     json.dump(data, json_file, indent=4)
@@ -149,7 +156,7 @@ if userteamkey < 21:
                         with open('teams.txt', 'w') as json_file:
                             json.dump(data, json_file, indent=4)
                     print(' ')
-                    createladder(data)
+                    createrichladder(data, leaguecolor, data[g]['name'])
                     print(' ')
                     
                     
@@ -210,6 +217,3 @@ if userteamkey < 21:
         print('invalid input')
 else:
     print('invalid input')
-
-            
-            

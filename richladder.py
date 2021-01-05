@@ -1,5 +1,7 @@
 from rich.console import Console
 from rich.table import Table
+from rich import inspect
+
 import random
 import time
 import json
@@ -7,15 +9,18 @@ import json
 with open('teams.txt') as f:
     data = json.load(f)
 
-console = Console()
 
-table = Table(show_header=True, header_style="bold magenta")
-table.add_column("Position", style="dim", width=12)
-table.add_column("Team")
-table.add_column("Points", justify="right")
 
-def createrichladder(data):
 
+
+
+def createrichladder(data, leaguecolor, userteam):
+    #table.rows = []
+    table = Table(show_header=True, header_style=leaguecolor)
+    table.add_column("Position", style="dim", width=8)
+    table.add_column("Team")
+    table.add_column("Points", justify="right")
+    console = Console()
     dicc = {}
 
     for team in data:
@@ -27,8 +32,14 @@ def createrichladder(data):
     for team in sorteddicc:
         
         position += 1
-        table.add_row(str(position), str(data[team]["name"]), str(data[team]["score"]))
+        if team == userteam:
+            table.add_row(str(position), str(data[team]["name"]), str(data[team]["score"]), style="wheat1 bold italic")
+        else:    
+            table.add_row(str(position), str(data[team]["name"]), str(data[team]["score"]))
         
     console.print(table)
-createrichladder(data)
 
+#createrichladder(data)
+
+
+#inspect(Console, methods=True)

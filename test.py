@@ -1,13 +1,13 @@
-import random
-import time
-import json
-from pprint import pprint as pp
+from rich import print
+from rich.table import Table
 
-with open('teams.txt') as f:
-    data = json.load(f)
+grid = Table.grid(expand=True)
+grid.add_column()
+grid.add_column(justify="left")
+grid.add_row("Raising shields", "[bold magenta]COMPLETED [green]:heavy_check_mark:")
+grid.add_row("Raising shields", "[bold magenta]COMPLETED [green]:heavy_check_mark:")
+grid.add_row("Raising shields", "[bold magenta]COMPLETED [green]:heavy_check_mark:")
+grid.add_row("Raising shields", "[bold magenta]COMPLETED [green]:heavy_check_mark:")
+grid.add_row("Raising shields", "[bold magenta]COMPLETED [green]:heavy_check_mark:")
 
-for i in data:
-    data[i]['score'] = 0
-
-with open('teams.txt', 'w') as json_file:
-        json.dump(data, json_file)
+print(grid)
