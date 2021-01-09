@@ -18,7 +18,7 @@ Simply select a league and then a team and play each game while working on upgra
 
 * Stamina - Better performance in the second half
 
-
+## Mentions
 
 Shoutout to Hugh Bothwell's round robin season algorithm for making this possible.
 
