@@ -42,6 +42,6 @@ def make_season():
     schedule = make_schedule(num_teams)
     return schedule
 
-#main()
+
 
 

@@ -1,64 +1,9 @@
 import random
 import json
 
-names = ['Applefarm', 'Daggertooth', 'Dynasty', 'Riverdale', 'Hurricane', 'Woodworth', 'Swan', 'Flameport', 'Magnolia', 'Sportsball', 'Red Bull', 'Explorer', 'Wolverine', 'Firecracker', 'Ricochet', 'Hit or Miss', 'Volcano', 'Bayside', 'Milano', 'Southside', 'Lakeside', 'Orange', 'Turtle', 'Block', 'August', 'Summer', 'Icy', 'Lightning', 'Pandora', 'Alpha', 'Omega', 'Munchkin', 'Red', 'Pond', 'Cobblestone', 'Snowpass', 'Arrow', 'Auto']
-suffixes = ['Albion', 'Wednesday', 'Town', 'Boys', 'Rovers', 'Utd', 'City', 'FC', 'Utd', 'City', 'FC', 'Utd', 'City', 'FC', 'Utd', 'City', 'FC', 'Utd', 'City', 'FC', 'FC', 'Utd', 'City', 'FC']
-
-newnames1 = []
-newnames2 = [] 
-
 premteams = ['Arsenal', 'Aston Villa', 'Brighton', 'Burnley', 'Chelsea', 'Crystal Palace', 'Everton', 'Fulham', 'Leeds Utd', 'Leicester City', 'Liverpool', 'Manchester Utd', 'Manchester City', 'Newcastle Utd', 'Sheffield Utd', 'Southampton', 'Spurs', 'West Brom', 'West Ham Utd', 'Wolves']
 
-def createnames(names,suffixes):
-    
-    while len(newnames1) < 20:
-        n1 = random.randint(1,len(names)) - 1
-    
-        nomp = names[n1]
-        if nomp not in newnames1:
-            newnames1.append(nomp)
-        
-    for name in newnames1:
-        n2 = random.randint(1,len(suffixes)) - 1
-        name += ' ' + str(suffixes[n2])
-        newnames2.append(name)
-        
-        
-    
-    return newnames2
 
-createnames(names,suffixes)
-        
-
-def createteam(name, key):
-    statsnum = 250
-    attnum = random.randint(1,100)
-    statsnum -= attnum
-    defnum = random.randint(1,100)
-    statsnum -= defnum
-    lucknum = random.randint(1,50)
-    statsnum -= lucknum
-    speednum = random.randint(1,statsnum)
-    statsnum -= speednum
-    stamnum = statsnum
-    bonus = 20
-
-
-    newteam = {
-        "key": key,
-        "name": name,
-        "score": 0,
-        "goaldif": 0,
-        "goals": 0,
-        "attack": attnum + bonus,
-        "defense": defnum + bonus,
-        "luck": lucknum + bonus,
-        "speed": speednum + bonus,
-        "stamina": stamnum + bonus
-    }
-
-    return newteam
-    
 def createpremteam(name, key):
     
     attnum = random.randint(70,100)
@@ -93,6 +38,9 @@ def createpremteam(name, key):
         "score": 0,
         "goaldif": 0,
         "goals": 0,
+        "won": 0,
+        "drawn": 0,
+        "lost": 0,
         "attack": attnum + bonus,
         "defense": defnum + bonus,
         "luck": lucknum + bonus,
@@ -104,13 +52,3 @@ def createpremteam(name, key):
 
 dic = {}
 key = 1
-#for name in newnames2:
-"""
-for name in premteams:
-    print(name)
-    dic[name] = createpremteam(name, key)
-    key += 1
-    
-with open('teams.txt', 'w') as json_file:
-        json.dump(dic, json_file, indent=4)
-"""

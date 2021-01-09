@@ -17,10 +17,8 @@ def createladder(data):
 
     position = 1
     for team in sorteddicc:
-        #print(dicc[team])
-        p = str(position) + '. ' + team + ' ' + str(dicc[team])
+        p = str(position) + '. ' + team
         print(p)
         position += 1
 
-#createladder(data)
 

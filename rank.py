@@ -6,9 +6,7 @@ import json
 with open('teams.txt') as f:
     data = json.load(f)
 
-attack = "speed"
-userteam = "Arsenal"
-
+#with a stat and a team as an argument, find out how good a team is at a stat, i.e. arsenal is 4th in speed
 def statrank(data, stat, userteam):
 
     dicc = {}
@@ -23,8 +21,7 @@ def statrank(data, stat, userteam):
     for equipo in sorteddicc:
         if equipo == userteam:
             teampos = position
-        #p = str(position) + '. ' + equipo + ' ' + str(dicc[equipo])
-        #print(p)
+        
         position += 1
     if teampos == 1:
         teampos = str(teampos) + "st"
@@ -35,6 +32,7 @@ def statrank(data, stat, userteam):
     statement = ('You are ' + teampos + " in " + str(stat) + "!")
     return(statement)
 
+#at the end of a season, find a teams position and give text based on if they get relegated or win etc.
 def seasonrank(data, userteam):
 
     dicc = {}
@@ -46,23 +44,39 @@ def seasonrank(data, userteam):
     
     teampos = 0
     position = 1
+    suffix = " "
     for equipo in sorteddicc:
         if equipo == userteam:
             teampos = position
-        #p = str(position) + '. ' + equipo + ' ' + str(dicc[equipo])
-        #print(p)
+        
         position += 1
     if teampos == 1:
         teampos = str(teampos) + "st"
+        suffix = "You won the league! 🏆 👏 🥳 "
     elif teampos == 2:
         teampos = str(teampos) + "nd"
+        suffix = "You qualified for the Champions league! "
+    elif teampos == 3:
+        teampos = str(teampos) + "rd"
+        suffix = "You qualified for the Champions league! "
+    elif teampos == 4:
+        teampos = str(teampos) + "th"
+        suffix = "You qualified for the Champions league! "
+    elif teampos < 7:
+        teampos = str(teampos) + "th"
+        suffix = "You qualified for the Europa league! "
+    elif teampos > 17:
+        teampos = str(teampos) + "th"
+        suffix = "You got relegated... 😢 ⬇️ "
     else:
         teampos = str(teampos) + "th"
+
     statement = ('You finished ' + teampos + "!")
-    return(statement)
+    print(statement)
+    print(suffix)
 
 
-
+# find the highest stat for a team, i.e. leeds utd are an attacking team
 def findhigheststat(data, team):
     stats = ["attack", "defense", "luck", "speed", "stamina"]
     higheststat = ""
@@ -73,7 +87,6 @@ def findhigheststat(data, team):
             higheststatnum = data[team][stat]
             higheststat = stat
             
-    
     if higheststat == "attack":
         statforreturn = "an attacking"
     elif higheststat == "defense":
@@ -87,5 +100,4 @@ def findhigheststat(data, team):
     
     return statforreturn
 
-#print(statrank(data, attack, userteam))
 
