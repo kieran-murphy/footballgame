@@ -2,6 +2,16 @@
 
 This game is based on various Fifa and Football Manager games and aims to replicate the experience of managing a team from one of Europe's top 5 football leagues through a text based command line using python.
 
+## Installation
+
+Rich is required to be able to see the tables:
+
+`pip install rich`
+
+To run the game:
+
+`python main.py`
+
 ## Instructions
 
 Simply select a league and then a team and play each game while working on upgrading your team each week in training.
