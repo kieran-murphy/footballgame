@@ -27,6 +27,8 @@ def statrank(data, stat, userteam):
         teampos = str(teampos) + "st"
     elif teampos == 2:
         teampos = str(teampos) + "nd"
+    elif teampos == 3:
+        teampos = str(teampos) + "rd"
     else:
         teampos = str(teampos) + "th"
     statement = ('You are ' + teampos + " in " + str(stat) + "!")
