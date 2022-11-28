@@ -10,7 +10,7 @@ from pprint import pprint as pp
 console = Console()
 
 
-premteams = ['Arsenal', 'Aston Villa', 'Brighton', 'Burnley', 'Chelsea', 'Crystal Palace', 'Everton', 'Fulham', 'Leeds Utd', 'Leicester City', 'Liverpool', 'Manchester Utd', 'Manchester City', 'Newcastle Utd', 'Sheffield Utd', 'Southampton', 'Spurs', 'West Brom', 'West Ham Utd', 'Wolves']
+premteams = ['Arsenal', 'Aston Villa', 'Brentford', 'Brighton', 'Chelsea', 'Crystal Palace', 'Everton', 'Fulham', 'Leeds Utd', 'Leicester City', 'Liverpool', 'Manchester Utd', 'Manchester City', 'Newcastle Utd', 'Nottingham Forest', 'Southampton', 'Spurs', 'West Brom', 'West Ham Utd', 'Wolves']
 laligateams = ['Alavés', 'Athletic Bilbao', 'Atlético de Madrid', 'Barcelona', 'Cádiz', 'Celta Vigo', 'Eibar', 'Elche', 'Getafe', 'Granada', 'Huesca', 'Levante', 'Osasuna', 'Real Betis', 'Real Madrid', 'Real Sociedad', 'Sevilla', 'Valencia', 'Valladolid', 'Villarreal']
 bundesligateams = ['FC Augsburg', 'Hertha BSC', 'Union Berlin', 'Arminia Bielefeld', 'Werder Bremen', 'Borussia Dortmund', 'Eintracht Frankfurt', 'SC Freiburg', '1899 Hoffenheim', 'FC Köln', 'RB Leipzig', 'Bayer Leverkusen', 'Mainz 05', 'Borussia Mönchengladbach', 'Bayern Munich', 'Schalke 04', 'VfB Stuttgart', 'VfL Wolfsburg', 'Hannover 96', 'Hamburger SV']
 ligue1teams = ['Angers', 'Bordeaux', 'Brest', 'Dijon', 'Lens', 'Lille', 'Lorient', 'Lyon', 'Marseille', 'Metz', 'Monaco', 'Montpellier', 'Nantes', 'Nice', 'Nîmes', 'Paris Saint-Germain', 'Reims', 'Rennes', 'Saint-Étienne', 'Strasbourg']

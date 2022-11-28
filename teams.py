@@ -20,7 +20,7 @@ def createpremteam(name, key):
     tier = 0
     if name in ["Arsenal", "Chelsea", "Manchester Utd", "Manchester City", "Liverpool", "Spurs", "Atlético de Madrid", "Barcelona", "Real Madrid", "Borussia Dortmund", "Bayern Munich", "Paris Saint-Germain", "Inter Milan", "Juventus", "AC Milan"]:
         tier += 1
-    elif name in ["Everton", "Wolves", "Leicester City", "West Ham Utd", "Newcastle Utd", "RB Leipzig", "Sevilla", "Bayer Leverkusen", "Eintracht Frankfurt", "VfL Wolfsburg", "Lyon", "Marseille", "Monaco", "Roma", "Napoli", "Torino"]:
+    elif name in ["Everton", "Leicester City", "West Ham Utd", "Newcastle Utd", "RB Leipzig", "Sevilla", "Bayer Leverkusen", "Eintracht Frankfurt", "VfL Wolfsburg", "Lyon", "Marseille", "Monaco", "Roma", "Napoli", "Torino"]:
         tier += 2
     else:
         tier += 3
